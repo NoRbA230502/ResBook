@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przeglądaj restauracje - ResBook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .browse-layout { display: flex; gap: 36px; max-width: 1200px; margin: 0 auto; padding: 48px 0 64px 0; }
+      .browse-filters { min-width: 260px; background: #f7f7f7; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 32px 24px; height: fit-content; }
+      .browse-filters h4 { margin-top: 0; color: #2d7a4b; font-size: 1.18rem; margin-bottom: 18px; }
+      .filter-group { margin-bottom: 22px; }
+      .filter-group label { display: flex; align-items: center; gap: 10px; font-size: 1.06rem; margin-bottom: 8px; cursor: pointer; }
+      .browse-list { flex: 1; display: flex; flex-direction: column; gap: 22px; }
+      .browse-restaurant { display: flex; gap: 24px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px 28px; align-items: center; transition: box-shadow .18s; }
+      .browse-restaurant:hover { box-shadow: 0 4px 24px rgba(45,122,75,0.10); }
+      .browse-restaurant img { width: 110px; height: 110px; object-fit: cover; border-radius: 10px; }
+      .browse-restaurant .info { flex: 1; }
+      .browse-restaurant .info h5 { margin: 0 0 6px 0; font-size: 1.22rem; color: #2d7a4b; }
+      .browse-restaurant .info .type { color: #6ec6a6; font-weight: 600; font-size: 1.01rem; margin-right: 12px; }
+      .browse-restaurant .info .city { color: #888; font-size: 0.98rem; }
+      .browse-restaurant .info .desc { margin: 8px 0 0 0; color: #444; font-size: 1.01rem; }
+      @media (max-width: 900px) { .browse-layout { flex-direction: column; gap: 24px; } .browse-filters { width: 100%; min-width: 0; } }
+    </style>
+</head>
+<body>
+    <header style="position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.98);box-shadow:0 2px 16px rgba(0,0,0,0.07);backdrop-filter:saturate(1.2) blur(2px);transition:background .18s;">
+        <div class="container header-flex" style="display:flex;align-items:center;">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="44" style="height:44px;width:auto;max-width:180px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <nav style="margin-left:auto;">
+                <ul style="display:flex;align-items:center;gap:16px;">
+                    <li><a href="index.html#restaurants">Start</a></li>
+                    <li><a href="przegladaj.html" class="active">Przeglądaj restauracje</a></li>
+                    <li><a href="onas.html">O nas</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="#" class="login-btn modal-trigger" data-modal="login" style="color:#fff;font-weight:700;background:#1e7e34;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(30,126,52,0.13);margin-left:8px;transition:background .18s;">Zaloguj się</a></li>
+                    <li><a href="#" class="register-btn modal-trigger" data-modal="register" style="color:#fff;font-weight:700;background:#2d7a4b;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(45,122,75,0.13);margin-left:8px;transition:background .18s;">Zarejestruj się</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            Nowość: ResBook obsługuje już ponad 1000 restauracji w Polsce! | Zarezerwuj stolik online w kilka sekund | Dołącz do naszego newslettera i odbierz rabat na pierwszą rezerwację!
+        </div>
+    </div>
+    <main>
+      <div class="browse-layout">
+        <aside class="browse-filters">
+          <h4>Filtruj restauracje</h4>
+          <div class="filter-group">
+            <strong style="font-size:1.07rem;">Typ kuchni</strong><br>
+            <label><input type="checkbox" class="filter-chk" value="wegetariańska"> Wegetariańska</label>
+            <label><input type="checkbox" class="filter-chk" value="włoska"> Włoska</label>
+            <label><input type="checkbox" class="filter-chk" value="azjatycka"> Azjatycka</label>
+            <label><input type="checkbox" class="filter-chk" value="francuska"> Francuska</label>
+            <label><input type="checkbox" class="filter-chk" value="grecka"> Grecka</label>
+            <label><input type="checkbox" class="filter-chk" value="grill"> Steki i grill</label>
+            <label><input type="checkbox" class="filter-chk" value="ryby"> Ryby i owoce morza</label>
+            <label><input type="checkbox" class="filter-chk" value="fusion"> Fusion</label>
+            <label><input type="checkbox" class="filter-chk" value="polska"> Polska tradycyjna</label>
+          </div>
+          <div class="filter-group">
+            <strong style="font-size:1.07rem;">Miasto</strong><br>
+            <label><input type="checkbox" class="filter-chk" value="Warszawa"> Warszawa</label>
+            <label><input type="checkbox" class="filter-chk" value="Kraków"> Kraków</label>
+            <label><input type="checkbox" class="filter-chk" value="Gdańsk"> Gdańsk</label>
+            <label><input type="checkbox" class="filter-chk" value="Poznań"> Poznań</label>
+            <label><input type="checkbox" class="filter-chk" value="Wrocław"> Wrocław</label>
+            <label><input type="checkbox" class="filter-chk" value="Lublin"> Lublin</label>
+            <label><input type="checkbox" class="filter-chk" value="Łódź"> Łódź</label>
+            <label><input type="checkbox" class="filter-chk" value="Katowice"> Katowice</label>
+            <label><input type="checkbox" class="filter-chk" value="Sopot"> Sopot</label>
+          </div>
+        </aside>
+        <section class="browse-list" id="browse-list">
+          <!-- Restauracje będą generowane przez JS -->
+        </section>
+      </div>
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;margin-right:32px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="36" style="height:36px;width:auto;max-width:140px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <div class="footer-links">
+                <a href="#" class="footer-link" data-modal="regulamin">Regulamin</a>
+                <a href="#" class="footer-link" data-modal="polityka">Polityka prywatności</a>
+                <a href="#" class="footer-link" data-modal="kontakt">Kontakt</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <span style="font-size:1.08rem; color:#fff; font-weight:500;">Pobierz naszą aplikację:</span>
+                <a href="#" style="display:inline-block;"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" style="height:38px;"></a>
+                <a href="#" style="display:inline-block;"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height:38px;"></a>
+            </div>
+            <p style="width:100%">&copy; 2025 ResBook Polska. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <div id="footer-modal" class="modal" style="display:none;z-index:2000;">
+        <div class="modal-content" style="max-width:520px;width:92vw;">
+            <span class="close-modal" id="close-footer-modal">&times;</span>
+            <div id="footer-modal-content"></div>
+        </div>
+    </div>
+    <div id="login-modal-content" style="display:none;">
+      <div style="display:flex;justify-content:center;margin-bottom:18px;">
+        <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="38" style="height:38px;width:auto;max-width:120px;object-fit:contain;">
+      </div>
+      <h3 style="margin-top:0;">Logowanie</h3>
+      <form id="login-form" style="display:flex;flex-direction:column;gap:16px;max-width:340px;margin:18px auto 0 auto;">
+        <input type="email" name="email" placeholder="E-mail" required style="padding:12px 16px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+        <input type="password" name="password" placeholder="Hasło" required style="padding:12px 16px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+        <button type="submit" style="background:linear-gradient(90deg,#2d7a4b 0%,#6ec6a6 100%);color:#fff;font-weight:700;padding:14px 0;border-radius:8px;font-size:1.12rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background .18s;">Zaloguj się</button>
+      </form>
+      <div style="margin:18px 0 0 0;display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <span style="color:#888;font-size:0.98rem;">lub</span>
+        <button id="login-google" style="display:flex;align-items:center;gap:10px;background:#fff;color:#222;font-weight:600;border:1px solid #d1d5db;padding:10px 0;border-radius:8px;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);width:100%;justify-content:center;cursor:pointer;transition:background .18s;"><img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google">Zaloguj przez Google</button>
+      </div>
+      <div id="login-success" style="display:none;color:#2d7a4b;font-weight:600;margin-top:16px;text-align:center;">Zalogowano pomyślnie!</div>
+    </div>
+    <div id="register-modal-content" style="display:none;">
+      <div style="display:flex;justify-content:center;margin-bottom:18px;">
+        <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="38" style="height:38px;width:auto;max-width:120px;object-fit:contain;">
+      </div>
+      <h3 style="margin-top:0;">Rejestracja</h3>
+      <form id="register-form" style="display:flex;flex-direction:column;gap:16px;max-width:340px;margin:18px auto 0 auto;">
+        <input type="text" name="name" placeholder="Imię i nazwisko" required style="padding:12px 16px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+        <input type="email" name="email" placeholder="E-mail" required style="padding:12px 16px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+        <input type="password" name="password" placeholder="Hasło" required style="padding:12px 16px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+        <button type="submit" style="background:linear-gradient(90deg,#2d7a4b 0%,#6ec6a6 100%);color:#fff;font-weight:700;padding:14px 0;border-radius:8px;font-size:1.12rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background .18s;">Zarejestruj się</button>
+      </form>
+      <div style="margin:18px 0 0 0;display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <span style="color:#888;font-size:0.98rem;">lub</span>
+        <button id="register-google" style="display:flex;align-items:center;gap:10px;background:#fff;color:#222;font-weight:600;border:1px solid #d1d5db;padding:10px 0;border-radius:8px;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.06);width:100%;justify-content:center;cursor:pointer;transition:background .18s;"><img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google">Zarejestruj przez Google</button>
+      </div>
+      <div id="register-success" style="display:none;color:#2d7a4b;font-weight:600;margin-top:16px;text-align:center;">Rejestracja zakończona sukcesem!</div>
+    </div>
+    <script>
+    // --- Modal logic (login/register/footer) ---
+    const modalTriggers = document.querySelectorAll('.modal-trigger');
+    const loginModalContent = document.getElementById('login-modal-content');
+    const registerModalContent = document.getElementById('register-modal-content');
+    const footerModal = document.getElementById('footer-modal');
+    const footerModalContent = document.getElementById('footer-modal-content');
+    const closeFooterModal = document.getElementById('close-footer-modal');
+    const footerLinks = document.querySelectorAll('.footer-link');
+    const modalTexts = {
+      regulamin: `<h3>Regulamin</h3><p>To przykładowy regulamin serwisu ResBook. Tutaj umieść szczegółowe zasady korzystania z serwisu, rezerwacji, płatności i inne ważne informacje.</p>` ,
+      polityka: `<h3>Polityka prywatności</h3><p>To przykładowa polityka prywatności. Opisz tutaj, jak przetwarzane są dane osobowe użytkowników, zasady bezpieczeństwa i prawa użytkowników.</p>`,
+      kontakt: document.getElementById('contact-modal-content') ? document.getElementById('contact-modal-content').innerHTML : ''
+    };
+    modalTriggers.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const type = btn.getAttribute('data-modal');
+        if(type === 'login') {
+          footerModalContent.innerHTML = loginModalContent.innerHTML;
+          setTimeout(() => {
+            const form = document.getElementById('login-form');
+            if(form) {
+              form.onsubmit = function(ev) {
+                ev.preventDefault();
+                form.style.display = 'none';
+                document.getElementById('login-success').style.display = 'block';
+              };
+            }
+          }, 10);
+        } else if(type === 'register') {
+          footerModalContent.innerHTML = registerModalContent.innerHTML;
+          setTimeout(() => {
+            const form = document.getElementById('register-form');
+            if(form) {
+              form.onsubmit = function(ev) {
+                ev.preventDefault();
+                form.style.display = 'none';
+                document.getElementById('register-success').style.display = 'block';
+              };
+            }
+          }, 10);
+        }
+        footerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    footerLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const type = link.getAttribute('data-modal');
+        if(type === 'kontakt') {
+          footerModalContent.innerHTML = modalTexts.kontakt;
+          setTimeout(() => {
+            const form = document.getElementById('contact-form');
+            if(form) {
+              form.onsubmit = function(ev) {
+                ev.preventDefault();
+                form.style.display = 'none';
+                document.getElementById('contact-success').style.display = 'block';
+              };
+            }
+          }, 10);
+        } else {
+          footerModalContent.innerHTML = modalTexts[type] || '';
+        }
+        footerModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    closeFooterModal.addEventListener('click', () => {
+      footerModal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+    footerModal.addEventListener('click', e => {
+      if (e.target === footerModal) {
+        footerModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+    // --- Restauracje do przeglądania + filtrowanie ---
+    const restaurants = [
+      { name: 'Restauracja Zielona', type: 'wegetariańska', city: 'Warszawa', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80', desc: 'Nowoczesna kuchnia roślinna, świeże składniki, przyjazna atmosfera.' },
+      { name: 'Smak Morza', type: 'ryby', city: 'Gdańsk', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80', desc: 'Wyśmienite ryby i owoce morza, widok na port.' },
+      { name: 'Włoska Uczta', type: 'włoska', city: 'Kraków', img: 'https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80', desc: 'Prawdziwa włoska pizza, makarony i desery.' },
+      { name: 'Steak House', type: 'grill', city: 'Poznań', img: 'https://images.unsplash.com/photo-1502741126161-b048400d98b2?auto=format&fit=crop&w=400&q=80', desc: 'Najlepsze steki i dania z grilla.' },
+      { name: 'Fusion Bistro', type: 'fusion', city: 'Wrocław', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80', desc: 'Kuchnia fusion – połączenie smaków świata.' },
+      { name: 'Pod Złotym Lwem', type: 'polska', city: 'Lublin', img: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80', desc: 'Tradycyjna polska kuchnia w nowoczesnym wydaniu.' },
+      { name: 'Sushi Zen', type: 'azjatycka', city: 'Łódź', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80', desc: 'Autentyczne sushi i dania kuchni japońskiej.' },
+      { name: 'Le Parisien', type: 'francuska', city: 'Katowice', img: 'https://images.unsplash.com/photo-1504674364212-72d6c5e08b09?auto=format&fit=crop&w=400&q=80', desc: 'Francuskie specjały, wina i desery.' },
+      { name: 'Grecka Tawerna', type: 'grecka', city: 'Sopot', img: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80', desc: 'Greckie smaki, owoce morza, feta i oliwki.' },
+      { name: 'Azjatycka Przygoda', type: 'azjatycka', city: 'Warszawa', img: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', desc: 'Kuchnia azjatycka: tajska, chińska, wietnamska.' },
+      { name: 'Francuska Finezja', type: 'francuska', city: 'Kraków', img: 'https://images.unsplash.com/photo-1504674364212-72d6c5e08b09?auto=format&fit=crop&w=400&q=80', desc: 'Wykwintne dania i atmosfera Paryża.' },
+      { name: 'Wege Bistro', type: 'wegetariańska', city: 'Wrocław', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80', desc: 'Bistro z kuchnią roślinną i zdrowymi przekąskami.' },
+      { name: 'Rybna Laguna', type: 'ryby', city: 'Sopot', img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80', desc: 'Świeże ryby, owoce morza i morska atmosfera.' },
+      { name: 'Polski Smak', type: 'polska', city: 'Poznań', img: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80', desc: 'Domowe pierogi, żurek i tradycyjne polskie dania.' }
+    ];
+    const browseList = document.getElementById('browse-list');
+    function renderRestaurants() {
+      const checked = Array.from(document.querySelectorAll('.filter-chk:checked')).map(chk => chk.value);
+      let filtered = restaurants;
+      if(checked.length) {
+        filtered = restaurants.filter(r => checked.includes(r.type) || checked.includes(r.city));
+      }
+      browseList.innerHTML = filtered.map(r => `
+        <div class="browse-restaurant">
+          <img src="${r.img}" alt="${r.name}">
+          <div class="info">
+            <h5>${r.name}</h5>
+            <span class="type">${r.type.charAt(0).toUpperCase() + r.type.slice(1)}</span>
+            <span class="city">${r.city}</span>
+            <div class="desc">${r.desc}</div>
+          </div>
+        </div>
+      `).join('');
+      if(filtered.length === 0) browseList.innerHTML = '<div style="color:#888;text-align:center;padding:48px 0;">Brak restauracji spełniających wybrane kryteria.</div>';
+    }
+    document.querySelectorAll('.filter-chk').forEach(chk => {
+      chk.addEventListener('change', renderRestaurants);
+    });
+    renderRestaurants();
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - ResBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header style="position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.98);box-shadow:0 2px 16px rgba(0,0,0,0.07);backdrop-filter:saturate(1.2) blur(2px);transition:background .18s;">
+        <div class="container header-flex" style="display:flex;align-items:center;">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="44" style="height:44px;width:auto;max-width:180px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <nav style="margin-left:auto;">
+                <ul style="display:flex;align-items:center;gap:16px;">
+                    <li><a href="index.html#restaurants">Start</a></li>
+                    <li><a href="przegladaj.html">Przeglądaj restauracje</a></li>
+                    <li><a href="onas.html">O nas</a></li>
+                    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+                    <li><a href="#" class="login-btn modal-trigger" data-modal="login" style="color:#fff;font-weight:700;background:#1e7e34;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(30,126,52,0.13);margin-left:8px;transition:background .18s;">Zaloguj się</a></li>
+                    <li><a href="#" class="register-btn modal-trigger" data-modal="register" style="color:#fff;font-weight:700;background:#2d7a4b;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(45,122,75,0.13);margin-left:8px;transition:background .18s;">Zarejestruj się</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            Nowość: ResBook obsługuje już ponad 1000 restauracji w Polsce! | Zarezerwuj stolik online w kilka sekund | Dołącz do naszego newslettera i odbierz rabat na pierwszą rezerwację!
+        </div>
+    </div>
+    <main>
+        <section class="contact-section" style="padding:48px 0 64px 0;">
+            <div class="container" style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.06);padding:40px 32px;">
+                <h2 style="margin-top:0;font-size:2.2rem;font-weight:800;color:#2d7a4b;text-align:center;margin-bottom:18px;">Kontakt z nami</h2>
+                <p style="text-align:center;font-size:1.12rem;color:#444;margin-bottom:28px;">Masz pytania, sugestie lub chcesz nawiązać współpracę? Skontaktuj się z nami przez formularz lub bezpośrednio:</p>
+                <form id="contact-form" style="display:flex;flex-direction:column;gap:18px;">
+                    <input type="text" name="name" placeholder="Imię i nazwisko" required style="padding:14px 18px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+                    <input type="email" name="email" placeholder="Twój e-mail" required style="padding:14px 18px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;">
+                    <textarea name="message" placeholder="Wiadomość" rows="4" required style="padding:14px 18px;font-size:1.08rem;border-radius:8px;border:1px solid #d1d5db;"></textarea>
+                    <button type="submit" style="background:linear-gradient(90deg,#2d7a4b 0%,#6ec6a6 100%);color:#fff;font-weight:700;padding:16px 0;border-radius:8px;font-size:1.14rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background .18s;">Wyślij wiadomość</button>
+                </form>
+                <div id="contact-success" style="display:none;color:#2d7a4b;font-weight:600;margin-top:18px;text-align:center;">Dziękujemy za kontakt! Odpowiemy najszybciej jak to możliwe.</div>
+                <div style="margin-top:32px;font-size:1.04rem;color:#444;text-align:center;">
+                    <strong>E-mail:</strong> <a href="mailto:kontakt@resbook.pl">kontakt@resbook.pl</a><br>
+                    <strong>Telefon:</strong> <a href="tel:123456789">123 456 789</a><br>
+                    <strong>Adres:</strong> ul. Przykładowa 12, 00-001 Warszawa
+                </div>
+                <div style="margin-top:18px;text-align:center;">
+                    <a href="https://www.facebook.com/" target="_blank" style="margin:0 8px;display:inline-block;"><img src="https://img.icons8.com/ios-filled/32/2d7a4b/facebook-new.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank" style="margin:0 8px;display:inline-block;"><img src="https://img.icons8.com/ios-filled/32/2d7a4b/instagram-new.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;margin-right:32px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="36" style="height:36px;width:auto;max-width:140px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Regulamin</a>
+                <a href="#" class="footer-link">Polityka prywatności</a>
+                <a href="kontakt.html" class="footer-link active">Kontakt</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <span style="font-size:1.08rem; color:#fff; font-weight:500;">Pobierz naszą aplikację:</span>
+                <a href="#" style="display:inline-block;"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" style="height:38px;"></a>
+                <a href="#" style="display:inline-block;"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height:38px;"></a>
+            </div>
+            <p style="width:100%">&copy; 2025 ResBook Polska. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script>
+    // Prosta obsługa formularza kontaktowego (frontend)
+    const form = document.getElementById('contact-form');
+    if(form) {
+      form.onsubmit = function(ev) {
+        ev.preventDefault();
+        form.style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+      };
+    }
+    </script>
+</body>
+</html>

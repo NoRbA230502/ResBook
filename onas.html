@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nas - ResBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header style="position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.98);box-shadow:0 2px 16px rgba(0,0,0,0.07);backdrop-filter:saturate(1.2) blur(2px);transition:background .18s;">
+        <div class="container header-flex" style="display:flex;align-items:center;">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="44" style="height:44px;width:auto;max-width:180px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <nav style="margin-left:auto;">
+                <ul style="display:flex;align-items:center;gap:16px;">
+                    <li><a href="index.html#restaurants">Start</a></li>
+                    <li><a href="przegladaj.html">Przeglądaj restauracje</a></li>
+                    <li><a href="onas.html" class="active">O nas</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="#" class="login-btn modal-trigger" data-modal="login" style="color:#fff;font-weight:700;background:#1e7e34;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(30,126,52,0.13);margin-left:8px;transition:background .18s;">Zaloguj się</a></li>
+                    <li><a href="#" class="register-btn modal-trigger" data-modal="register" style="color:#fff;font-weight:700;background:#2d7a4b;padding:7px 22px;border-radius:22px;box-shadow:0 2px 8px rgba(45,122,75,0.13);margin-left:8px;transition:background .18s;">Zarejestruj się</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="marquee-bar">
+            <div class="marquee-content">
+            Nowość: ResBook obsługuje już ponad 1000 restauracji w Polsce! | Zarezerwuj stolik online w kilka sekund | Dołącz do naszego newslettera i odbierz rabat na pierwszą rezerwację!
+            </div>
+        </div>
+        <section class="hero hero-large">
+            <div class="hero-bg">
+                <div class="container hero-content">
+                    <h2>O nas</h2>
+                    <div class="about-content about-content-large">
+                        <p class="about-lead">ResBook to największy w Polsce i Europie Północnej system rezerwacji stolików online. Naszą misją jest łączyć gości z najlepszymi restauracjami, oferując szybki i wygodny sposób na rezerwację stolika w dowolnym miejscu i czasie.</p>
+                        <div class="about-columns">
+                            <div class="about-col about-why">
+                                <h4>Dlaczego warto rezerwować z ResBook?</h4>
+                                <div class="why-features">
+                                    <div class="why-feature">
+                                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&q=80" alt="Duży wybór restauracji">
+                                        <div>
+                                            <strong>Ponad 1000 restauracji</strong>
+                                            <p>Największa baza restauracji w Polsce – zawsze znajdziesz coś dla siebie.</p>
+                                        </div>
+                                    </div>
+                                    <div class="why-feature">
+                                        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=200&q=80" alt="Szybka rezerwacja">
+                                        <div>
+                                            <strong>Błyskawiczna rezerwacja</strong>
+                                            <p>Rezerwujesz stolik online w kilka sekund, bez dzwonienia i oczekiwania.</p>
+                                        </div>
+                                    </div>
+                                    <div class="why-feature">
+                                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&q=80" alt="Zweryfikowane opinie">
+                                        <div>
+                                            <strong>Zweryfikowane opinie</strong>
+                                            <p>Wszystkie recenzje pochodzą od prawdziwych gości – wiesz, czego się spodziewać.</p>
+                                        </div>
+                                    </div>
+                                    <div class="why-feature">
+                                        <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0723c6a?auto=format&fit=crop&w=200&q=80" alt="Grecka Tawerna">
+                                        <div>
+                                            <strong>Grecka Tawerna</strong>
+                                            <p>Autentyczne greckie smaki – oliwki, feta, owoce morza i tradycyjne potrawy śródziemnomorskie.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-col">
+                                <h4>Nasze wartości</h4>
+                                <ul class="about-list">
+                                    <li>🤝 Zaufanie i transparentność</li>
+                                    <li>🌱 Wspieranie lokalnych biznesów</li>
+                                    <li>💡 Innowacyjność i rozwój</li>
+                                    <li>⭐ Najwyższa jakość obsługi</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="about-cta">Dołącz do milionów zadowolonych gości i odkryj nowe kulinarne doświadczenia z ResBook!</p>
+                        <div class="about-team">
+                            <h4>Poznaj nasz zespół</h4>
+                            <div class="team-members">
+                                <div class="team-member">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Adam Nowak">
+                                    <span class="team-name">Adam Nowak</span>
+                                    <span class="team-role">CEO & Founder</span>
+                                </div>
+                                <div class="team-member">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Katarzyna Zielińska">
+                                    <span class="team-name">Katarzyna Zielińska</span>
+                                    <span class="team-role">Head of Customer Success</span>
+                                </div>
+                                <div class="team-member">
+                                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Marek Wiśniewski">
+                                    <span class="team-name">Marek Wiśniewski</span>
+                                    <span class="team-role">Lead Developer</span>
+                                </div>
+                                <div class="team-member">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Anna Kowalczyk">
+                                    <span class="team-name">Anna Kowalczyk</span>
+                                    <span class="team-role">Marketing Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-contact">
+                            <h4>Kontakt z nami</h4>
+                            <p>Masz pytania lub chcesz nawiązać współpracę? Skontaktuj się z nami:</p>
+                            <ul class="contact-list">
+                                <li><strong>E-mail:</strong> <a href="mailto:kontakt@resbook.pl">kontakt@resbook.pl</a></li>
+                                <li><strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a></li>
+                                <li><strong>Adres:</strong> ul. Przykładowa 1, 00-001 Warszawa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-flex">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;margin-right:32px;">
+                <img src="screens/ResBookLogo.png" alt="ResBook Logo" height="36" style="height:36px;width:auto;max-width:140px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <div class="footer-links">
+                <a href="#">Regulamin</a>
+                <a href="#">Polityka prywatności</a>
+                <a href="#">Kontakt</a>
+            </div>
+            <p>&copy; 2025 ResBook Polska. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+</body>
+</html>

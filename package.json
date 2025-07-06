@@ -1,0 +1,12 @@
+{
+  "name": "projekt-w67182",
+  "version": "1.0.0",
+  "description": "ResBook clone in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
