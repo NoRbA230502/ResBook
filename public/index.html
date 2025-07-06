@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResBook - Rezerwacja stolika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <a href="#" class="logo">
+                <img src="../screens/ResBookLogo.png" alt="ResBook Logo" height="40" style="height:40px;width:auto;max-width:140px;object-fit:contain;vertical-align:middle;">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#restaurants">Restauracje</a></li>
+                    <li><a href="onas.html">O nas</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="#" class="login-btn">Zaloguj się</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="container hero-content">
+                    <h2>Zarezerwuj stolik online</h2>
+                    <form class="reservation-form">
+                        <input type="text" placeholder="Miasto lub restauracja" required>
+                        <input type="date" required>
+                        <input type="time" required>
+                        <input type="number" min="1" max="20" placeholder="Liczba osób" required>
+                        <button type="submit">Szukaj</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="restaurants">
+            <div class="container">
+                <h3>Popularne restauracje</h3>
+                <div class="restaurant-cards">
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Restauracja 1">
+                        <div class="card-content">
+                            <h4>Restauracja Zielona</h4>
+                            <p>Warszawa</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80" alt="Restauracja 2">
+                        <div class="card-content">
+                            <h4>Smak Morza</h4>
+                            <p>Gdańsk</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80" alt="Restauracja 3">
+                        <div class="card-content">
+                            <h4>Włoska Uczta</h4>
+                            <p>Kraków</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1502741126161-b048400d98b2?auto=format&fit=crop&w=400&q=80" alt="Restauracja 4">
+                        <div class="card-content">
+                            <h4>Steak House</h4>
+                            <p>Poznań</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Restauracja 5">
+                        <div class="card-content">
+                            <h4>Fusion Bistro</h4>
+                            <p>Wrocław</p>
+                        </div>
+                    </div>
+                    <div class="restaurant-card">
+                        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=400&q=80" alt="Restauracja 6">
+                        <div class="card-content">
+                            <h4>Nowoczesna Kuchnia</h4>
+                            <p>Łódź</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ResBook. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
